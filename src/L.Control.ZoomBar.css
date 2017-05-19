@@ -1,0 +1,35 @@
+/* 
+   Icons from the Noun Project:
+    https://thenounproject.com/
+
+   Zoom-to-start icon derived from home, purchased for royalty-free usage:
+    https://thenounproject.com/term/home/783856/
+
+   Zoom-to-area icon derived from magnifying glass, purchased for royalty-free usage:
+    https://thenounproject.com/term/magnifying-glass/2506/
+*/
+
+.leaflet-control-zoom-to-start {
+	background:#fff url(images/zoom-to-start-26.png) no-repeat 0 0;
+	background-size:26px 26px;
+}
+
+.leaflet-control-zoom-to-area {
+	background:#fff url(images/zoom-to-area-26.png) no-repeat 0 0;
+	background-size:26px 26px;
+}
+
+.leaflet-container.crosshair-cursor-enabled {
+    cursor:crosshair;
+}
+
+@media
+(-webkit-min-device-pixel-ratio:2),
+(min-resolution:192dpi) {
+    .leaflet-control-zoom-to-start {
+        background-image:url(images/zoom-to-start-26.png);
+    }
+    .leaflet-control-zoom-to-area {
+        background-image:url(images/zoom-to-area-26.png);
+    }
+}

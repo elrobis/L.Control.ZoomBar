@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Leaflet ZoomBar Demo</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        
+        <!-- Implementation: Include ZoomBar.css after including leaflet.css -->
+        <link rel="stylesheet" type="text/css" href="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.css"/>
+        <link rel="stylesheet" type="text/css" href="src/L.Control.ZoomBar.css"/>
+        
+        <!-- Implementation: Include ZoomBar.js after including leaflet.js -->
+        <script type="text/javascript" src="http://cdn.leafletjs.com/leaflet-0.6.4/leaflet.js"></script>
+        <script type="text/javascript" src="src/L.Control.ZoomBar.js"></script>
+        
+        <style>
+            #map { 
+                height: 600px; 
+                width: 800px; 
+                z-index: 1000;
+            }
+            #getZoomButton {
+                position: absolute;
+                top: 18px;
+                left: 20px;
+                z-index: 1001;
+            }
+        </style>
+    </head>
+    <body>
+        <div id="map"></div>
+        <button id="getZoomButton" onclick="getCenterAndZoom();">Get Center and Zoom</button>
+        <script type="text/javascript">
+            
+            // Implementation: Set native zoomControl option to false!
+            //                 ZoomBar uses the initial map view as the home position.
+            //
+            var map = L.map('map',{
+                                minZoom: 13,
+                                maxZoom: 18,
+                                zoomControl: false
+                            }).setView([34.00, -81.035], 14);
+            
+            // Implementation: Instantiate a ZoomBar control in its place.
+            //
+            var zoom_bar = new L.Control.ZoomBar({position: 'topright'}).addTo(map);
+            
+            L.tileLayer(
+                'http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', 
+                {maxZoom: 18}).addTo(map);
+            
+            function getCenterAndZoom(){
+                console.log("Lat: "+map.getCenter().lat);
+                console.log("Lon: "+map.getCenter().lng);
+                console.log("Zoom: "+map.getZoom());
+                alert("Lat: "+map.getCenter().lat+"\nLon: "+map.getCenter().lng+"\nZoom: "+map.getZoom());
+            }
+        </script>
+    </body>
+</html>
